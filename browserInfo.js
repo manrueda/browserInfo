@@ -9,11 +9,11 @@
     module.exports = factory();
   } else {
     // Browser globals
-    root.ClientInfo = factory();
+    root.BrowserInfo = factory();
   }
 }(this, function () {
 
-  function ClientInfo(_window){
+  function BrowserInfo(_window){
     this.windows = false;
     this.linux = false;
     this.osx = false;
@@ -99,6 +99,6 @@
 
     return this;
   }
-  return ClientInfo;
+  return BrowserInfo;
 
 }));
