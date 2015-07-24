@@ -1,0 +1,25 @@
+{
+  "name": "browserInfo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ManRueda/browserInfo",
+  "authors": [
+    "Manuel Rueda <manuel.rueda.un@gmail.com>"
+  ],
+  "description": "Lightweight bower package to extract browser and OS info",
+  "main": "dist/browserInfo.min.js",
+  "keywords": [
+    "browser",
+    "navigator",
+    "information",
+    "version",
+    "OS"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

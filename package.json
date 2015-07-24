@@ -1,0 +1,25 @@
+{
+  "name": "browser-info",
+  "version": "0.0.1",
+  "description": "Lightweight bower package to extract browser and OS info",
+  "main": "dist/browserInfo.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManRueda/browserInfo.git"
+  },
+  "author": "Manuel Rueda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManRueda/browserInfo/issues"
+  },
+  "homepage": "https://github.com/ManRueda/browserInfo#readme",
+  "devDependencies": {
+    "tape": "^4.0.1"
+  }
+}
