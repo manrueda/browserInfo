@@ -5,4 +5,7 @@ env:
 
 script:
   - npm install
+  - grunt jshint
   - npm test
+before_script:
+  - npm install grunt-cli -g
