@@ -7,5 +7,7 @@ script:
   - npm install
   - grunt jshint
   - npm test
+  - npm run testDist
+  - npm run cov
 before_script:
   - npm install grunt-cli -g
