@@ -1,6 +1,6 @@
 {
   "name": "browser-info",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Lightweight bower package to extract browser and OS info",
   "main": "dist/browserInfo.min.js",
   "directories": {
