@@ -33,6 +33,7 @@
     };
 
     this.ie = false;
+    this.edge = false;
     this.chrome = false;
     this.firefox = false;
     this.opera = false;
@@ -77,14 +78,15 @@
 
     //Detect browser
     this.firefox = (systemStr.indexOf('Firefox/') !== -1 && systemStr.indexOf('Seamonkey/') === -1);
-    this.chrome = (systemStr.indexOf('Chrome/') !== -1 && systemStr.indexOf('Chromium/') === -1);
+    this.chrome = (systemStr.indexOf('Chrome/') !== -1 && systemStr.indexOf('Chromium/') === -1 && systemStr.indexOf('Edge/') === -1);
     this.chromium = (systemStr.indexOf('Chromium/') !== -1);
-    this.safari = (systemStr.indexOf('Safari/') !== -1 && systemStr.indexOf('Chromium/') === -1 && systemStr.indexOf('Chrome/') === -1);
+    this.safari = (systemStr.indexOf('Safari/') !== -1 && systemStr.indexOf('Chromium/') === -1 && systemStr.indexOf('Chrome/') === -1 && systemStr.indexOf('Edge/') === -1);
     this.safari = (systemStr.indexOf('OPR/') !== -1 || systemStr.indexOf('Opera/') !== -1);
     this.ie = (systemStr.indexOf('MSIE') !== -1 || (systemStr.indexOf('Trident/') !== -1 && systemStr.indexOf('rv:') !== -1));
+    this.edge = (systemStr.indexOf('Edge/') !== -1);
 
     //Detect browser version
-    this.browserVersion = getVersion(systemStr);
+    this.browserVersion = getVersion(systemStr, this);
     if (this.browserVersion != -1 ){
       if (this.browserVersion.split('.').length > 0){
         this.browserVersion = Number(this.browserVersion.split('.')[0] + '.' + this.browserVersion.split('.')[1]);
@@ -93,8 +95,14 @@
       }
     }
 
-    function getVersion(ua){
-      return /(OPR\/|Opera\/|Chrome\/|Firefox\/|Chromium\/|Safari\/|MSIE |rv:).*?(?=$| |;|\n|\))/.exec(ua)[0].replace(' ', ':').replace('/', ':').split(':')[1];
+    function getVersion(ua, BI){
+      var version = /(OPR\/|Opera\/|Edge\/|Chrome\/|Firefox\/|Chromium\/|Safari\/|MSIE |rv:).*?(?=$| |;|\n|\))/.exec(ua)[0].replace(' ', ':').replace('/', ':').split(':')[1];
+
+      //This fix the Edge userAgent that contains the version of many browsers.
+      if (BI.edge){
+        version = /(Edge\/).*?(?=$| |;|\n|\))/.exec(ua)[0].replace(' ', ':').replace('/', ':').split(':')[1];
+      }
+      return version;
     }
 
     return this;

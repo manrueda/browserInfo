@@ -62,4 +62,35 @@ module.exports = function(mod){
 
     t.end();
   });
+
+  test('Window-10-Edge-x64', function (t) {
+    var bi = new browserInfo({navigator:{userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240'}});
+    t.ok(bi.windows, 'The UA is Windows');
+    t.notOk(bi.linux, 'The UA isn\'t Linux');
+    t.notOk(bi.osx, 'The UA isn\'t OSX');
+
+    t.notOk(bi.osVersion.w2000, 'The UA isn\'t Windows 2000');
+    t.notOk(bi.osVersion.wxp, 'The UA isn\'t Windows XP');
+    t.notOk(bi.osVersion.wvista, 'The UA isn\'t Windows Vista');
+    t.notOk(bi.osVersion.w7, 'The UA isn\'t Windows 7');
+    t.notOk(bi.osVersion.w8, 'The UA isn\'t Windows 8');
+    t.notOk(bi.osVersion.w81, 'The UA isn\'t Windows 8.1');
+    t.ok(bi.osVersion.w10, 'The UA is Windows 10');
+
+    t.ok(bi.osArch.x64, 'The UA is x64');
+    t.notOk(bi.osArch.x84, 'The UA isn\'t x84');
+    t.notOk(bi.osArch.PowerPC, 'The UA isn\'t PowerPC');
+
+    t.notOk(bi.ie, 'The UA isn\'t ie');
+    t.notOk(bi.chrome, 'The UA isn\'t chrome');
+    t.notOk(bi.firefox, 'The UA isn\'t firefox');
+    t.notOk(bi.opera, 'The UA isn\'t opera');
+    t.notOk(bi.safari, 'The UA isn\'t safari');
+    t.notOk(bi.chromium, 'The UA isn\'t chromium');
+    t.ok(bi.edge, 'The UA is Microsoft Edge');
+
+    t.equal(bi.browserVersion, 12.1024, 'The Browser version is 12.1');
+
+    t.end();
+  });
 }
