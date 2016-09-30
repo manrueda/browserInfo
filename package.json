@@ -27,6 +27,6 @@
     "grunt-contrib-jshint": "1.0.0",
     "grunt-contrib-uglify": "1.0.1",
     "istanbul": "0.4.2",
-    "tape": "4.5.1"
+    "tape": "4.6.1"
   }
 }
